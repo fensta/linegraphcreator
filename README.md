@@ -36,10 +36,6 @@ Limitations
 ===========
 As of now, the input file is interpreted as directed graph. So far, it is also impossible to adjust whether self-links are allowed or not in the original graph and resulting line graph.
 
-License
-=======
-Feel free to experiment with the code and adjust it to your liking!
-If you plan to use this code in your research paper, please cite our paper:
-"XXX"
-
+References
+==========
 [1] - Evans, T. S., & Lambiotte, R. (2009). Line graphs, link partitions, and overlapping communities. Physical Review E, 80(1), 016105.
