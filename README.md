@@ -9,11 +9,16 @@ Usage
 =====
 It can be executed via the command line. So far, the following arguments are supported:
 
-* -i [--input] - defines path to input file.
-* -o [--output] - defines path to output file for storing the line graph.
-* -csv [--csv] - interpret input file as .csv file
-* -b [--buffer] - determines how many chunks of the line graph should be written to file. The larger the value, the faster is the graph processed. Default: Store line graph every 1000000 newly created edges. This argument determines    how much memory the algorithm is allowed to use up.
-* -d [--delimiter] - in case of raw text as input, pass in the delimiter separating both nodes per line in the input file. Default is whitespace.
+1. Required arguments:
+  * -i [--input] - Defines the path to the input file.
+  * -o [--output] - Defines the path to the output file for storing the line graph.
+  * -d [--delimiter] - Specify the delimiter used in the input file for separating the values in a row.
+2. Optional arguments:
+  * -h [--help] - Show help and further explanation regarding the arguments.
+  * -csv [--csv] - Interpret input file as .csv file instead of raw text. Default: raw text
+  * -b [--buffer] - Determines how many edges of the line graph should be cached before writing them to the output file. The larger the value, the faster is the graph processed. Default: Store line graph every 1000000 newly created edges. This argument determines how much memory the algorithm is allowed to consume.
+  * -m [--mapping] - Specify the file name of the mapping from the nodes in the line graph to the edges in the original graph. Otherwise the mapping is named 'edge_mapping' and stored in the same location as the output file.
+  * -v [--verbose] - Yields more output to the user regarding the progress of the graph transformation. Note that this might slow down the transformation significantly. By default it is deactivated.
 
 where the former two arguments are mandatory.
 
@@ -21,11 +26,11 @@ Examples:
 
 python LineGraphCreator -i /foo/bar/input.txt -o /baz/my_output.txt -d " " -b 200
 
-In this case the file input.txt is read as edge list and the whitespace delimiter is used to separate entries in each line. Note that the delimiter parameter is redundant in this case. Every 200 edges the newly created edges are appended to my_output.txt.
+In this case the file input.txt is read as edge list and the whitespace delimiter is used to separate entries in each line. Once every 200 edges the newly created edges are appended to my_output.txt.
+ 
+python LineGraphCreator -i /foo/bar/input.csv -o /baz/my_output.txt csv -m bruz - d "."
 
-python LineGraphCreator -i /foo/bar/input.csv -o /baz/my_output.txt -csv 
-
-This time the file input.csv is read as a csv file and after applying the algorithm, the results are stored in my_output.txt. This time every 1000000 edges all newly created ones are stored.
+This time the file input.csv is read as a csv file and after applying the algorithm, the results are stored in 'my_output.txt'. This time every 1000000 edges all of them are stored in 'my_output'. The mapping is renamed to 'bruz' and the delimiter in the input file is a dot.
 
 
 Input format
@@ -46,7 +51,7 @@ How to find out which edge in the line graph corresponds to which node in the or
 =============================================================================================
 Note that the edges in the line graph were renumbered, so it is **NOT** possible to map them directly back to the original graph. Instead, a file containing the mapping is created in the same location as the line graph. In this file, each entry describes a mapping of a node in the line graph to its corresponding edge in the original graph. Thus, an entry looks like this: 
 
-_node_in_line_graph_: (_source_node_in_original_graph_, _target_node_in_original_graph_)
+'<Node in line graph>: (<Source node in original graph>, <Target node in original graph>)'
 
 For instance, the entry "0: (1,2)" means the edge from node 1 to 2 in the orginal graph maps to node 0 in the line graph.
 
