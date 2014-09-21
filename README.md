@@ -24,11 +24,11 @@ where the former two arguments are mandatory.
 
 Examples:
 
-python LineGraphCreator -i /foo/bar/input.txt -o /baz/my_output.txt -d " " -b 200
+`python LineGraphCreator -i /foo/bar/input.txt -o /baz/my_output.txt -d " " -b 200`
 
 In this case the file input.txt is read as edge list and the whitespace delimiter is used to separate entries in each line. Once every 200 edges the newly created edges are appended to my_output.txt.
  
-python LineGraphCreator -i /foo/bar/input.csv -o /baz/my_output.txt csv -m bruz - d "."
+`python LineGraphCreator -i /foo/bar/input.csv -o /baz/my_output.txt csv -m bruz - d "."`
 
 This time the file input.csv is read as a csv file and after applying the algorithm, the results are stored in 'my_output.txt'. This time every 1000000 edges all of them are stored in 'my_output'. The mapping is renamed to 'bruz' and the delimiter in the input file is a dot.
 
@@ -51,7 +51,7 @@ How to find out which edge in the line graph corresponds to which node in the or
 =============================================================================================
 Note that the edges in the line graph were renumbered, so it is **NOT** possible to map them directly back to the original graph. Instead, a file containing the mapping is created in the same location as the line graph. In this file, each entry describes a mapping of a node in the line graph to its corresponding edge in the original graph. Thus, an entry looks like this: 
 
-'<Node in line graph>: (<Source node in original graph>, <Target node in original graph>)'
+`<Node in line graph>: (<Source node in original graph>, <Target node in original graph>)`
 
 For instance, the entry "0: (1,2)" means the edge from node 1 to 2 in the orginal graph maps to node 0 in the line graph.
 
