@@ -7,7 +7,7 @@ The modification was developed for our paper: "XXX".
 
 Usage
 =====
-It can be executed via the command line. So far, the following arguments are supported:
+`line_graph_creator.py` can be executed via the command line. So far, the following arguments are supported:
 
 1. Required arguments:
   * -i [--input] - Defines the path to the input file.
