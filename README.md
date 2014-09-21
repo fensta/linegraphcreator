@@ -56,9 +56,10 @@ Note that the edges in the line graph were renumbered, so it is **NOT** possible
 For instance, the entry "0: (1,2)" means the edge from node 1 to 2 in the orginal graph maps to node 0 in the line graph.
 
 
-Limitations
+Next Milestones
 ===========
-As of now, the input file is interpreted as directed graph. So far, it is also impossible to adjust whether self-links are allowed or not in the original graph and resulting line graph.
+* allow to process undirected graphs
+* let users decide whether self-links are allowed or not in the original graph and the resulting line graph
 
 
 Citations
