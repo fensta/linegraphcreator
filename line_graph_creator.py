@@ -162,7 +162,7 @@ def renumber_edges(dictionary, edge):
     return dictionary[edge] 
 
 
-def incremental_lg(users, in_edges, out_edges, write_to_disk_after, mapping, is_verbose, outp=None, is_directed=True, is_weighted=False):
+def incremental_lg(users, in_edges, out_edges, write_to_disk_after, mapping, is_verbose, outp, is_directed=True, is_weighted=False):
     """
     
     Implements the actual algorithm. It needs the edge list of G as input and for more efficient processing the dictionary of edges is also given as input to create line graph L(G). 
@@ -201,14 +201,14 @@ def incremental_lg(users, in_edges, out_edges, write_to_disk_after, mapping, is_
     Any other possible case (weighted/unweighted and undirected, weighted and directed) isn't implemented yet.
     
     """
-    output_path = None
-    if outp != None:
-        output_path = outp
-    else:
-        base_dir = os.path.realpath(__file__).rsplit(os.sep, 1)[0] # Searches from right to left
-        #print "base_dir",base_dir
-        output_path = os.path.join(base_dir, "line_graph_test_optimized.txt") # File stored in same directory as incremental_line_graph_creator.py called "line_graph.txt"
-        #print "default output path",output_path
+    #output_path = None
+    #if outp != None:
+    #    output_path = outp
+    #else:
+    #    base_dir = os.path.realpath(__file__).rsplit(os.sep, 1)[0] # Searches from right to left
+    #    #print "base_dir",base_dir
+    #    output_path = os.path.join(base_dir, "line_graph_test_optimized.txt") # File stored in same directory as incremental_line_graph_creator.py called "line_graph.txt"
+    #    #print "default output path",output_path
     
     # v-th edge in G is vertex v in L(G)
     #vertices_in_lg = dict((v,edges[v]) for v in xrange(len(edges)))
@@ -312,4 +312,4 @@ if __name__ == "__main__":
         extension = "csv"
 
     users, out_edges, in_edges = read_edge_list(args.input, extension, args.delimiter)
-    incremental_lg(users, out_edges, in_edges, args.buffer, args.mapping, args.verbose, outp=args.output)
+    incremental_lg(users, out_edges, in_edges, args.buffer, args.mapping, args.verbose, args.output)
