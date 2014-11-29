@@ -2,7 +2,7 @@ LineGraphCreator
 ================
 Transforms a graph into a corresponding line graph.
 It modifies the algorithm introduced by Evans and Lambiotte [[1](http://arxiv.org/pdf/0903.2181.pdf)] in that it requires a constant amount of memory for the transformation  - opposed to the original implementation (which stores the entire line graph in memory) - by storing the resulting line graph chunkwise in a file. Thus, the transformation takes a bit longer, but allows to process larger graphs (> 10000 nodes) without requiring a lot of memory.
-The modification was developed for our paper: "XXX".
+The modification was developed for our paper: "A Framework for Validating the Merit of Properties that Predict the Influence of a Twitter user" [[2](http://myweb.sabanciuniv.edu/stefan/2014/11/29/a-framework-for-validating-the-merit-of-properties-that-predict-the-influence-of-a-twitter-user/)].
 
 
 Usage
