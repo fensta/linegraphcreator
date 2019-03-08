@@ -64,7 +64,11 @@ Next Milestones
 
 Citations
 =========
-In case you want to use this code in your research paper, please cite our paper "XXX". Thanks!
+In case you want to use this code in your research paper, please cite our [paper](https://www.sciencedirect.com/science/article/pii/S0957417414006915):
+
+Räbiger, Stefan, and Myra Spiliopoulou. "A framework for validating the merit of properties that predict the influence of a twitter user." Expert Systems with Applications 42.5 (2015): 2824-2834.
+
+Thanks!
 
 
 References
